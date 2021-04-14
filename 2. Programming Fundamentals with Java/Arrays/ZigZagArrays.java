@@ -1,29 +1,34 @@
 import java.util.Scanner;
 
-public class ArrayRotation {
+public class ZigZagArrays {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[] line = scanner.nextLine().split(" ");
-        int rotations = Integer.parseInt(scanner.nextLine());
-        int[] numbers = new int[line.length];
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = Integer.parseInt(line[i]);
-        }
+        int n = Integer.parseInt(scanner.nextLine());
+        int[] firstArray = new int[n];
+        int[] secondArray = new int[n];
 
-        for (int i = 0; i < rotations; i++) {
-            int firstElement = numbers[0];
-            // shift elements to the left
-            for (int j = 0; j < numbers.length - 1; j++) {
-                numbers[j] = numbers[j + 1];
+        for (int i = 1; i <= n; i++) {
+            int number1 = scanner.nextInt();
+            int number2 = scanner.nextInt();
+
+            if (i % 2 == 0){
+                    secondArray[i - 1] = number1;
+                    firstArray[i - 1] = number2;
+            }else {
+                secondArray[i - 1] = number2;
+                firstArray[i - 1] = number1;
             }
-            // add first element to last position
-            numbers[numbers.length - 1] = firstElement;
+
         }
 
-        for (int x: numbers){
+        for (int x: firstArray) {
             System.out.print(x + " ");
+        }
+        System.out.println();
+
+        for (int y: secondArray){
+            System.out.print(y + " ");
         }
     }
 }
-
