@@ -2,35 +2,30 @@ import java.util.Scanner;
 
 public class PadawanEquipment {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        double money = Double.parseDouble(scanner.nextLine()); // the amount of money Ivo Cho has
-        int students = Integer.parseInt(scanner.nextLine()); // how many students they are
-        double priceOfLightSabers = Double.parseDouble(scanner.nextLine()); // for a single saber
-        double priceOfRobes = Double.parseDouble(scanner.nextLine()); // for a single robe
-        double priceOfBelts = Double.parseDouble(scanner.nextLine()); // for a single belt
+        double money = Double.parseDouble(scanner.nextLine());
+        int students = Integer.parseInt(scanner.nextLine());
+        double priceOfLightsaber = Double.parseDouble(scanner.nextLine());
+        double priceOfRobe = Double.parseDouble(scanner.nextLine());
+        double priceOfBelt = Double.parseDouble(scanner.nextLine());
+        double sum; double beltPrice;
 
-        double beltsPrice = 0.0; double robesPrice = 0.0; double sabersPrice = 0.0; double wholeSum = 0.0; int freeBelts = 0;
-
-        sabersPrice = priceOfLightSabers * (students + Math.ceil((students / 100.0f) * 10.0f));
-        robesPrice = priceOfRobes * students;
-
-
-        if (students >= 6){      // every sixth belt is free
-            freeBelts = students / 6;
-            beltsPrice = priceOfBelts * (students - freeBelts);
+        double sabersPrice = (Math.ceil(students + (students/10.0f)) * priceOfLightsaber);
+        double robesPrice = students * priceOfRobe;
+        int freeBelts = students / 6;
+        if (freeBelts < 1){
+             beltPrice = students * priceOfBelt;
         }else {
-            beltsPrice = priceOfBelts * students;
+            beltPrice = (students - freeBelts) * priceOfBelt;
         }
 
-        wholeSum = beltsPrice + robesPrice + sabersPrice;
 
-        if (wholeSum <= money){
-            System.out.printf("The money is enough - it would cost %.2flv.", wholeSum);
+        sum = sabersPrice + robesPrice + beltPrice;
+        if (sum <= money){
+            System.out.printf("The money is enough - it would cost %.2flv.", sum);
         }else {
-            System.out.printf("Ivan Cho will need %.2flv more.", wholeSum - money);
+            System.out.printf("George Lucas will need %.2flv more.", sum - money);
         }
-
     }
 }
