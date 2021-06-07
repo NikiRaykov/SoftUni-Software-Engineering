@@ -2,21 +2,12 @@ import java.util.Scanner;
 
 public class ReversedChars {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        String first = scanner.nextLine();
-        String second = scanner.nextLine();
-        String third = scanner.nextLine();
+        char first = scanner.next().charAt(0);
+        char second = scanner.next().charAt(0);
+        char third = scanner.next().charAt(0);
 
-        String string1 = ""; StringBuilder string2 = new StringBuilder();
-
-        string1 = first + " " + second + " " + third;
-
-        string2.append(string1);
-        string2.reverse();
-
-
-        System.out.println(string2);
+        System.out.printf("%s %s %s", third, second, first);
     }
 }
