@@ -21,11 +21,6 @@ public class TheLift {
 
         for (int i = 0; i < lift.size(); i++) {
 
-            if (lift.get(i) < 0){
-                continue;
-            }
-
-
             if (lift.get(i) > 0){
                 int oldValue = lift.get(i);
                 int peopleWhoGotInside = maxCapacity - oldValue;
@@ -36,11 +31,17 @@ public class TheLift {
                 peopleWaiting -= maxCapacity;
             }
 
+            if (peopleWaiting <= 0){
+                break;
+            }
+
+
         }
 
         for (int i = 0; i < lift.size(); i++) {
             if (lift.get(i) < 4){
                 System.out.println("The lift has empty spots!");
+                break;
             }
         }
 
