@@ -1,45 +1,38 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class ShootForTheWin {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        List<Integer> targets = Arrays.stream(scanner.nextLine().split(" ")).
-                map(Integer::parseInt).collect(Collectors.toList());
+        Scanner scan = new Scanner(System.in);
+        int[] arr = Arrays.stream(scan.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        String command = scanner.nextLine(); int count = 0;
+        Boolean[] position = new Boolean[arr.length];
+        Arrays.fill(position, true);
+        String input;
+        int countShot = 0;
 
-        while (!command.equals("End")){
-            int shot = Integer.parseInt(command);
-
-            if (shot >= 0 && shot <= targets.size() - 1){
-                if (targets.get(shot) != -1){
-                    int targetShot = targets.get(shot);
-                    targets.set(shot, -1);
-                    count++;
-
-                    for (int i = 0; i < targets.size(); i++) {
-                        int nextTarget = targets.get(i);
-                        if (nextTarget != -1){
-                            if (nextTarget > targetShot){
-                                targets.set(targets.indexOf(nextTarget), nextTarget - targetShot);
-                            }else {
-                                targets.set(targets.indexOf(nextTarget), nextTarget + targetShot);
+        while (!"End".equals(input = scan.nextLine())) {
+            int shot = Integer.parseInt(input);
+            if (shot >= 0 && shot < arr.length) {
+                if (position[shot]) {
+                    int value = arr[shot];
+                    for (int i = 0; i < arr.length; i++) {
+                        if (!(i == shot)) {
+                            if (arr[i] > arr[shot] && position[i]) {
+                                arr[i] -= value;
+                            } else if (position[i]) {
+                                arr[i] += value;
                             }
                         }
                     }
+                    arr[shot] = -1;
+                    countShot++;
+                    position[shot] = false;
                 }
             }
-
-            command = scanner.nextLine();
         }
-
-        System.out.printf("Shot targets: %d -> ",count);
-        for (Integer n: targets){
-            System.out.print(n + " ");
-        }
+        System.out.printf("Shot targets: %d -> ", countShot);
+        System.out.print(Arrays.toString(arr).replaceAll("[\\[\\]]", "").replaceAll(", ", " "));
     }
 }
