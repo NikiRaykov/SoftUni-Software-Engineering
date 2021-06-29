@@ -22,7 +22,6 @@ public class Main {
 
             Article2 article = new Article2(title, content, author);
             articleInformation.add(article);
-            System.out.println();
         }
 
         String sortBy = scanner.nextLine();
