@@ -26,8 +26,8 @@ public class Main {
         salon.add(bunny);
 
 // Get Pet
-        Pet pet = salon.getPet("Bella", "Mia");
-        System.out.println(pet); // Bella 2 - (Mia)
+         Pet pet = salon.getPet("Bella", "Mia");
+         System.out.println(pet); // Bella 2 - (Mia)
 
 // Count
         System.out.println(salon.getCount()); // 2
