@@ -14,6 +14,7 @@ public class Main {
             box = new Box(length, width, height);
         } catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
+            return;
         }
 
 
