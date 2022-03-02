@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "loggin.level.org.hibernate.SQL",
+      "type": "java.lang.String",
+      "description": "Description for loggin.level.org.hibernate.SQL."
+    }
+  ] }
