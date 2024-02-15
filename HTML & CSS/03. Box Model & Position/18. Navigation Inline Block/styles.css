@@ -1,0 +1,8 @@
+body {
+    padding: 4em;
+    font-family: 16px/1.5 Helvetica, sans-serif;
+}
+
+nav a {
+    display: inline-block;
+}
