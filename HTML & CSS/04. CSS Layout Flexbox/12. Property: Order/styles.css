@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  background-color: DodgerBlue;
+  width: 225px;
+  height: 150px;
+  flex-wrap: wrap;
+}
+
+#box1 {
+  background-color: pink;
+}
+
+#box2 {
+  background-color: lightgreen;
+}
+
+#box3 {
+  background-color: lightblue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+div#box1 {order: 2;}
+div#box2 {order: 0;}
+div#box3 {order: 1;}
