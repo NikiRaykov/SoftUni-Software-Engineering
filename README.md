@@ -3,7 +3,7 @@
 
 # Certificates
 Diploma | Java | Java Script | Front-End | Open Courses |
-| :----:| :----------:| :-----------:| :--------:|
+| :----:| | :----:| :----------:| :-----------:| :--------:|
 |[Programming Basics With Java](https://softuni.bg/certificates/details/100252/5d5f5a11)|[Progamming Basics With JavaScript](https://softuni.bg/certificates/details/182808/c2183587)|[HTML & CSS](https://softuni.bg/trainings/4361/html-and-css-january-2024)|[QA Basics](https://softuni.bg/certificates/details/177371/2df6b9df)|
 |[Programming Fundamentals With Java](https://softuni.bg/certificates/details/111326/d48da50c)
 |[Java Advanced](https://softuni.bg/certificates/details/114540/43d32c59)
